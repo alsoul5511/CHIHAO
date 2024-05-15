@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>上海驰豪光学有限公司</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+        header {
+            background-color: #00274d;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+        section {
+            background-color: white;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .carousel {
+            position: relative;
+            width: 100%;
+            height: 500px; /* 调整高度以适应你的设计 */
+            overflow: hidden;
+        }
+        .carousel img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* 使用 contain 确保图片按比例缩放并完全显示 */
+            transform: translate(-50%, -50%);
+            display: none; /* 隐藏所有图片，只有当前显示的会改变这个属性 */
+        }
+        .carousel img.active {
+            display: block; /* 仅显示当前图片 */
+        }
+        .carousel-buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+        .carousel-buttons button {
+            background-color: rgba(0, 0, 0, 0.5);
+            border: none;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #00274d;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>上海驰豪光学有限公司</h1>
+    </header>
+
+    <div class="container">
+        <section>
+            <h2>公司简介</h2>
+            <p>上海驰豪光学有限公司是一家集生产、开发和销售为一体的国内大型光学眼镜架生产企业。公司生产经营各类镜架已有20余年历史，生产基地占地面积约5亩，厂房4000多平方米，年产高品质眼镜架二十万余副，公司专业设计生产钛及钛合金，不锈钢及合金，金胶混合，板材及注塑类眼镜架，远销全国各个地区，并与海外多家贸易商保持紧密合作。</p>
+            <p>上海驰豪光学有限公司为了适应现代企业的发展要求，坚持“专业、诚信、创新、进取”的价值观并构建了长期有效的CRM及ERP管理系统，并基于客户需要于移动端建立门户，方便客户及时获取最新产品讯息。</p>
+            <p>上海驰豪光学有限公司秉承诚信质量服务，铸造品牌之店的经营理念，赢得了众多客户的信赖，并与韩国APS公司合作，成为国内生产无框切边系列眼镜的第一批公司，董事长徐升贵也获得了“2019年度全国先进个体工商户”的宝贵荣誉。</p>
+        </section>
+
+        <div class="carousel">
+            <img src="5aaa884cbe1d942424c49d0eddf6cf7.jpg" alt="展示图片1" class="active">
+            <img src="5aaa884cbe1d942424c49d0eddf6cf7.jpg" alt="展示图片2">
+            <img src="9633ab2fa9cac65ca308c09ec56439c.jpg" alt="展示图片3">
+            <div class="carousel-buttons">
+                <button onclick="prevSlide()">&#10094;</button>
+                <button onclick="nextSlide()">&#10095;</button>
+            </div>
+        </div>
+
+        <section>
+            <h2>联系方式</h2>
+            <p>邮箱: <a href="mailto:18051285888@189.cn">18051285888@189.cn</a></p>
+            <p>联系人: Mr Xu</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 上海驰豪光学有限公司. 版权所有.</p>
+    </footer>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel img');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>
